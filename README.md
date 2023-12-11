@@ -28,3 +28,21 @@ htp.p(APEX_UTIL.PREPARE_URL(p_url => 'f?p=' || :APP_ID || ':18:'|| :APP_SESSION
 1. APEX_UTIL.PREPARE_URL: Essa função é utilizada para construir URLs de maneira segura no Oracle APEX.<br>
 2. 'f?p=' || :APP_ID || ':18:'|| :APP_SESSION ||'::::P18_ID_CLIENTE,P18_SEQ:' || :P2_ID_CLIENTE ||','|| :P2_NOME_CLIENTE: Aqui, a URL está sendo construída concatenando vários parâmetros. Parece que está redirecionando para a página 18 (:18:) e está passando os valores de P18_ID_CLIENTE e P18_SEQ como parâmetros, juntamente com os valores de P2_ID_CLIENTE e P2_NOME_CLIENTE.<br>
 3. htp.p: Esta é uma função do Oracle APEX utilizada para imprimir (exibir) o conteúdo HTML gerado dinamicamente.
+
+# APEX_PAGE.GET_URL
+1. APEX_PAGE.GET_URL: Essa função do Oracle APEX gera uma URL para uma página específica com base nos parâmetros fornecidos. Neste caso, está gerando uma URL para a página 18, com os valores dos itens P18_ID_CLIENTE e P18_SEQ sendo especificados.
+```
+APEX_PAGE.GET_URL (
+   p_page   => 18,
+   p_items  => 'P18_ID_CLIENTE,P18_SEQ',
+   p_values => ':P2_ID_CLIENTE,:P2_NOME_CLIENTE' ) f_url_1
+
+```
+O resultado dessa parte será uma URL que pode ser usada para redirecionar o usuário para a página 18, passando os valores dos itens mencionados.
+
+2. APEX_UTIL.PREPARE_URL: Esta função também é do Oracle APEX e é utilizada para construir URLs de forma segura. Neste caso, ela está sendo utilizada para preparar uma URL diretamente, sem a necessidade de especificar os parâmetros da página.
+```
+APEX_UTIL.PREPARE_URL('f?p=&APP_ID.:18:&APP_SESSION.::::P1_X,P1_Y:somevalue,othervalue')
+
+```
+Aqui, está gerando uma URL para a página 18, utilizando diretamente valores como &APP_ID., &APP_SESSION., P1_X, P1_Y, somevalue, e othervalue.
