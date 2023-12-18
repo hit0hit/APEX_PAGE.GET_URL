@@ -11,4 +11,4 @@ SELECT APEX_PAGE.GET_URL (
      FROM DUAL
 ////////////////////////////////////////
 
-apex_page.get_url(p_page => '80', p_items => 'P80_ID_GIRO', p_values => E.ID_ESTOQUE)) as ETIQUETA_URL
+apex_page.get_url(p_page => '80', p_items => 'P80_ID_GIRO', p_values => E.ID_ESTOQUE)) as url
